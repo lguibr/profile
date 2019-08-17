@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-  profile:
+  dev_front:
+    container_name: profile
     build: .
     volumes:
       - .:/usr/src/app

@@ -5,8 +5,8 @@ import "brace/mode/json"
 import "brace/theme/gruvbox"
 
 const Editor = props => {
-    const onEditorLoad = ediotObject => {
-        console.log(ediotObject)
+    const onEditorLoad = editorObject => {
+        // console.log(editorObject)
     }
     const onEditorChange = newValue => {
         console.log(newValue)
@@ -28,9 +28,6 @@ const Editor = props => {
             highlightActiveLine={false}
             editorProps={{ $blockScrolling: true }}
             setOptions={{
-                enableBasicAutocompletion: true,
-                enableLiveAutocompletion: true,
-                enableSnippets: true,
                 showLineNumbers: true,
                 tabSize: 2
             }}

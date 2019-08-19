@@ -1,4 +1,5 @@
 import React from "react"
+
 import Drawer from "@material-ui/core/Drawer"
 import Hidden from "@material-ui/core/Hidden"
 
@@ -7,6 +8,7 @@ export default function ResponsiveNav(props) {
     return (
         <nav className={classes.drawer} aria-label="mailbox folders">
             <Hidden smUp implementation="css">
+                
                 <Drawer
                     variant="temporary"
                     anchor={theme.direction === "rtl" ? "right" : "left"}

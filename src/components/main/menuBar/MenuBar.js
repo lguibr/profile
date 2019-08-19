@@ -9,9 +9,12 @@ import MailIcon from "@material-ui/icons/BookmarkBorder"
 import ResponsiveNav from "./responsiveNav/ResponsiveNav"
 
 const MenuBar = props => {
+
     const { theme, open, classes, allFiles } = props
     const handleDrawerToggle = props.handleDrawerToggle
+
     const drawer = (
+
         <div>
             <div className={classes.toolbar} />
             {allFiles.map((file, fileIndex) => {
@@ -23,17 +26,17 @@ const MenuBar = props => {
                                     <ListItemIcon>
                                         <MailIcon />
                                     </ListItemIcon>
-                                    {file.files.map((e, i) => {
+                                    {file.files.map((element, jindex) => {
                                         return (
                                             <div
-                                                key={e}
+                                                key={element}
                                                 style={{
                                                     width: "100%"
                                                 }}
                                             >
                                                 <ListItemText
-                                                    key={e}
-                                                    primary={e}
+                                                    key={element}
+                                                    primary={element}
                                                 />
                                             </div>
                                         )
@@ -46,9 +49,11 @@ const MenuBar = props => {
                 )
             })}
         </div>
+
     )
 
     return (
+
         <ResponsiveNav
             classes={classes}
             theme={theme}
@@ -56,6 +61,7 @@ const MenuBar = props => {
             handleDrawerToggle={handleDrawerToggle}
             drawer={drawer}
         />
+
     )
 }
 

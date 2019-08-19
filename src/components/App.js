@@ -47,7 +47,7 @@ const styles = () => ({
         width: drawerWidth
     },
     content: {
-        height: "calc(100vh - 56px)",
+        height: "calc(100vh - 80px)",
         width: "100vw"
     },
     footer: {

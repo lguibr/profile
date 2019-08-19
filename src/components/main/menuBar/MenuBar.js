@@ -1,6 +1,5 @@
 import React from "react"
 
-import Divider from "@material-ui/core/Divider"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
@@ -31,37 +30,53 @@ const MenuBar = props => {
         }
     }
     const drawer = (
-        <div>
+        <div
+            style={{
+                display: "flex"
+            }}
+        >
+            <div
+                style={{
+                    minHeight: "100vh",
+                    width: "30px",
+                    backgroundColor: "black"
+                }}
+            >
+                <div className={classes.toolbar} />
+
+                <h1>a</h1>
+                <h1>b</h1>
+                <h1>c</h1>
+            </div>
             <div className={classes.toolbar} />
-            {files.map((file, fileIndex) => {
-                const fileName = Object.keys(file)[0]
-                const fileValue = Object.values(file)[0]
-                return (
-                    <div key={fileIndex}>
-                        <List key={fileIndex}>
-                            <ListItem
-                                dense
-                                button
-                                onClick={() => setOpenedFiles(fileName)}
-                                key={file}
-                            >
-                                {fileValue && <p>!</p>}
-                                {fileName == current && <p>!</p>}
-                                <ListItemIcon>
-                                    {getFileIcon(fileName)}
-                                </ListItemIcon>
-                                <div
-                                    key={file}
-                                    style={{
-                                        width: "100%"
-                                    }}
-                                />
-                            </ListItem>
-                        </List>
-                        <Divider />
-                    </div>
-                )
-            })}
+            <div>
+                <div>
+                    <div className={classes.toolbar} />
+                    {files.map((file, fileIndex) => {
+                        const fileName = Object.keys(file)[0]
+                        const fileValue = Object.values(file)[0]
+                        return (
+                            <div key={fileIndex}>
+                                <List key={fileIndex}>
+                                    <ListItem
+                                        dense
+                                        button
+                                        onClick={() => setOpenedFiles(fileName)}
+                                        key={file}
+                                    >
+                                        {fileValue && <p>!</p>}
+                                        {fileName === current && <p>!</p>}
+                                        <ListItemIcon>
+                                            {getFileIcon(fileName)}
+                                        </ListItemIcon>
+                                        {fileName}
+                                    </ListItem>
+                                </List>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
         </div>
     )
 

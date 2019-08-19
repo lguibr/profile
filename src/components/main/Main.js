@@ -23,6 +23,7 @@ export default function Main(props) {
 
             <MenuBar
                 open={open}
+                current={current}
                 theme={theme}
                 classes={classes}
                 handleDrawerToggle={handleDrawerToggle}

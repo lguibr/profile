@@ -14,7 +14,7 @@ import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded"
 import ResponsiveNav from "./responsiveNav/ResponsiveNav"
 
 const MenuBar = props => {
-    const { theme, open, classes, setOpenedFiles, files } = props
+    const { theme, open, classes, setOpenedFiles, files, current } = props
     const handleDrawerToggle = props.handleDrawerToggle
     const getFileIcon = fileName => {
         switch (fileName) {
@@ -46,6 +46,7 @@ const MenuBar = props => {
                                 key={file}
                             >
                                 {fileValue && <p>!</p>}
+                                {fileName == current && <p>!</p>}
                                 <ListItemIcon>
                                     {getFileIcon(fileName)}
                                 </ListItemIcon>

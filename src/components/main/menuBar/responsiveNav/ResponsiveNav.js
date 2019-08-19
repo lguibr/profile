@@ -8,7 +8,6 @@ export default function ResponsiveNav(props) {
     return (
         <nav className={classes.drawer} aria-label="mailbox folders">
             <Hidden smUp implementation="css">
-                
                 <Drawer
                     variant="temporary"
                     anchor={theme.direction === "rtl" ? "right" : "left"}
@@ -18,7 +17,7 @@ export default function ResponsiveNav(props) {
                         paper: classes.drawerPaper
                     }}
                     ModalProps={{
-                        keepMounted: true // Better open performance on mobile.
+                        keepMounted: true
                     }}
                 >
                     {drawer}

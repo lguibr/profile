@@ -81,10 +81,10 @@ const App = props => {
         setMobileOpen(!mobileOpen)
     }
 
-    const handleToggleFile = file => {
+    const setOpenFile = file => {
         const newFiles = files.map(f => {
             return Object.keys(f)[0] === file
-                ? { [file]: !Object.values(f)[0] }
+                ? { [file]: true }
                 : f
         })
         setFiles(newFiles)
@@ -101,7 +101,7 @@ const App = props => {
                 theme={theme}
                 open={mobileOpen}
                 handleDrawerToggle={handleDrawerToggle}
-                setOpenedFiles={handleToggleFile}
+                setOpenedFiles={setOpenFile}
                 files={files}
             />
             <div className={classes.footer}>

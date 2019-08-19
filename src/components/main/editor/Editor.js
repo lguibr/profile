@@ -1,12 +1,12 @@
 import React from "react"
 
 import AceEditor from "react-ace"
-import "brace/mode/yaml"
+import "brace/mode/json"
 import "brace/theme/gruvbox"
 
-import personal from "../../../data/personal";
-import education from "../../../data/education";
-import professional from "../../../data/professional";
+import personal from "../../../data/personal"
+import education from "../../../data/education"
+import professional from "../../../data/professional"
 import projects from "../../../data/projects"
 
 const Editor = props => {
@@ -19,15 +19,15 @@ const Editor = props => {
     }
 
     const getFileByCurrent = () => {
-        switch(current){
+        switch (current) {
             case "personal":
-                return JSON.stringify(personal,null,4)
+                return JSON.stringify(personal, null, "\t")
             case "education":
-                return JSON.stringify(education,null,4)
+                return JSON.stringify(education, null, "\t")
             case "professional":
-                return JSON.stringify(professional,null,4)
+                return JSON.stringify(professional, null, "\t")
             case "projects":
-                return JSON.stringify(projects,null,4)
+                return JSON.stringify(projects, null, "\t")
             default:
                 return "//default"
         }
@@ -36,7 +36,7 @@ const Editor = props => {
     return (
         <AceEditor
             placeholder="//Loading..."
-            mode="yaml"
+            mode="json"
             theme="gruvbox"
             onChange={onEditorChange}
             onLoad={onEditorLoad}

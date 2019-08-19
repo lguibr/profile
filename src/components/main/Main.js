@@ -1,6 +1,6 @@
 import React from "react"
 
-import Editor from "./../editor/Editor"
+import Editor from "./editor/Editor"
 import Header from "./../header/Header"
 import MenuBar from "./menuBar/MenuBar"
 

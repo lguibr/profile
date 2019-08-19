@@ -4,19 +4,10 @@ import { withStyles } from "@material-ui/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles"
-
-import Editor from "./editor/Editor"
 import Footer from "./footer/Footer"
-import Header from "./header/Header"
-import MenuBar from "./menuBar/MenuBar"
 
-import edu from "./../data/educationalExp"
-import pro from "./../data/proffisionalExp"
-import proj from "./../data/projets"
-
+import Main from "./main/Main"
 const drawerWidth = 220
-
-const allFiles = [edu, pro, proj]
 
 const theme = createMuiTheme({
     palette: {
@@ -35,8 +26,7 @@ const theme = createMuiTheme({
 const styles = () => ({
     main: {
         display: "flex",
-        backgroundColor: "blue",
-        height: "100vh",
+        height: "calc(100vh-200)",
         width: "100vw"
     },
     drawer: {
@@ -67,7 +57,7 @@ const styles = () => ({
     footer: {
         width: "100%",
         height: "20px",
-        position: "absolute",
+        position: "fixed",
         backgroundColor: "#007acc",
         bottom: "0px",
         zIndex: "1400",
@@ -91,28 +81,14 @@ class App extends Component {
 
         return (
             <MuiThemeProvider theme={theme}>
-                <div className={classes.main}>
-                    <CssBaseline />
+                <CssBaseline />
 
-                    <Header
-                        classes={classes}
-                        handleDrawerToggle={handleDrawerToggle}
-                    />
-
-                    <MenuBar
-                        open={this.state.mobileOpen}
-                        theme={theme}
-                        classes={classes}
-                        handleDrawerToggle={handleDrawerToggle}
-                        allFiles={allFiles}
-                    />
-
-                    <main className={classes.content}>
-                        <div className={classes.toolbar} />
-                        <Editor value={` {"teste" : "teste"} `} />
-                    </main>
-                </div>
-
+                <Main
+                    classes={classes}
+                    theme={theme}
+                    open={this.state.mobileOpen}
+                    handleDrawerToggle={handleDrawerToggle}
+                />
                 <div className={classes.footer}>
                     <Footer />
                 </div>

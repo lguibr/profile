@@ -48,13 +48,15 @@ const MenuBar = props => {
         </div>
     )
 
-    return <ResponsiveNav 
-    classes={classes}
-    theme={theme}
-    open={open}
-    handleDrawerToggle={handleDrawerToggle}
-    drawer={drawer}
-    />
+    return (
+        <ResponsiveNav
+            classes={classes}
+            theme={theme}
+            open={open}
+            handleDrawerToggle={handleDrawerToggle}
+            drawer={drawer}
+        />
+    )
 }
 
 export default MenuBar

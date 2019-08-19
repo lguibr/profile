@@ -1,12 +1,15 @@
 import React, { Component } from "react"
+
 import { withStyles } from "@material-ui/styles"
 
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles"
+
 import Footer from "./footer/Footer"
 
 import Main from "./main/Main"
+
 const drawerWidth = 220
 
 const theme = createMuiTheme({

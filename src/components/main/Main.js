@@ -2,7 +2,7 @@ import React from "react"
 
 import Editor from "./../editor/Editor"
 import Header from "./../header/Header"
-import MenuBar from "./../menuBar/MenuBar"
+import MenuBar from "./menuBar/MenuBar"
 
 import edu from "./../../data/educationalExp"
 import pro from "./../../data/proffisionalExp"

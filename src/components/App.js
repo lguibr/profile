@@ -8,14 +8,13 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles"
 import Editor from "./editor/Editor"
 import Footer from "./footer/Footer"
 import Header from "./header/Header"
-import Navigation from "./navigation/Navigation"
+import MenuBar from "./menuBar/MenuBar"
 
 import edu from "./../data/educationalExp"
 import pro from "./../data/proffisionalExp"
 import proj from "./../data/projets"
 
 const drawerWidth = 220
-
 
 const allFiles = [edu, pro, proj]
 
@@ -100,12 +99,12 @@ class App extends Component {
                         handleDrawerToggle={handleDrawerToggle}
                     />
 
-                    <Navigation
+                    <MenuBar
                         open={this.state.mobileOpen}
                         theme={theme}
                         classes={classes}
                         handleDrawerToggle={handleDrawerToggle}
-                        allFiles = { allFiles }
+                        allFiles={allFiles}
                     />
 
                     <main className={classes.content}>

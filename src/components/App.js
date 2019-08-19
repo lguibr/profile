@@ -1,17 +1,11 @@
-import React, { Component } from "react"
-
+import React, { useState } from "react"
 import { withStyles } from "@material-ui/styles"
-
 import CssBaseline from "@material-ui/core/CssBaseline"
-
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles"
-
 import Footer from "./footer/Footer"
-
 import Main from "./main/Main"
 
 const drawerWidth = 220
-
 const theme = createMuiTheme({
     palette: {
         type: "dark",
@@ -25,7 +19,6 @@ const theme = createMuiTheme({
         }
     }
 })
-
 const styles = () => ({
     main: {
         display: "flex",
@@ -68,36 +61,54 @@ const styles = () => ({
     }
 })
 
-class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            mobileOpen: false
-        }
+const fileNames = [
+    { personal: true },
+    { education: false },
+    { professional: false },
+    { projects: false }
+]
+
+const App = props => {
+    const { classes } = props
+
+    const [mobileOpen, setMobileOpen] = useState(false)
+
+    const [files, setFiles] = useState(fileNames)
+
+    const [current, setCurrent] = useState("personal")
+
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen)
     }
-    render() {
-        const handleDrawerToggle = () => {
-            this.setState({ mobileOpen: !this.state.mobileOpen })
-        }
 
-        const { classes } = this.props
-
-        return (
-            <MuiThemeProvider theme={theme}>
-                <CssBaseline />
-
-                <Main
-                    classes={classes}
-                    theme={theme}
-                    open={this.state.mobileOpen}
-                    handleDrawerToggle={handleDrawerToggle}
-                />
-                <div className={classes.footer}>
-                    <Footer />
-                </div>
-            </MuiThemeProvider>
-        )
+    const handleToggleFile = file => {
+        const newFiles = files.map(f => {
+            return Object.keys(f)[0] === file
+                ? { [file]: !Object.values(f)[0] }
+                : f
+        })
+        setFiles(newFiles)
+        setCurrent(file)
     }
+
+    return (
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+
+            <Main
+                current={current}
+                classes={classes}
+                theme={theme}
+                open={mobileOpen}
+                handleDrawerToggle={handleDrawerToggle}
+                setOpenedFiles={handleToggleFile}
+                files={files}
+            />
+            <div className={classes.footer}>
+                <Footer />
+            </div>
+        </MuiThemeProvider>
+    )
 }
 
 export default withStyles(styles)(App)

@@ -1,6 +1,5 @@
 import React from "react"
 import { withStyles } from "@material-ui/styles"
-
 const styles = props => ({
 	footerContainer: {
 		width: "100%",
@@ -12,10 +11,8 @@ const styles = props => ({
 		paddingLeft: "1rem"
 	}
 })
-
 const Footer = props => {
 	const { classes } = props
-
 	return (
 		<div className={classes.footerContainer}>
 			<div>
@@ -24,5 +21,4 @@ const Footer = props => {
 		</div>
 	)
 }
-
 export default withStyles(styles)(Footer)

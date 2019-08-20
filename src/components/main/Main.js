@@ -1,36 +1,39 @@
 import React from "react"
-
 import Editor from "./editor/Editor"
 import MenuBar from "./menuBar/MenuBar"
 import { Typography } from "@material-ui/core"
-
+import { withStyles } from "@material-ui/styles"
+const styles = () => ({
+	main: {
+		display: "flex",
+		height: "calc(100vh-200)",
+		width: "100vw"
+	},
+	content: {
+		height: "calc(100vh - 80px)",
+		width: "100vw"
+	}
+})
 const Main = props => {
 	const {
 		classes,
-		theme,
 		handleDrawerToggle,
 		open,
 		setOpenedFiles,
 		files,
 		current
 	} = props
-
-	console.log(current)
-
 	return (
 		<div className={classes.main}>
 			<MenuBar
 				open={open}
 				current={current}
-				theme={theme}
-				classes={classes}
 				handleDrawerToggle={handleDrawerToggle}
 				setOpenedFiles={setOpenedFiles}
 				files={files}
 			/>
-
 			<main className={classes.content}>
-				<div className={classes.toolbar} />
+				<div style={{ minHeight: 36 }} />
 				<div
 					style={{
 						height: "24px"
@@ -49,5 +52,4 @@ const Main = props => {
 		</div>
 	)
 }
-
-export default Main
+export default withStyles(styles)(Main)

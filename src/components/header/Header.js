@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded"
 import CodeIcon from "@material-ui/icons/Code"
-
 const styles = theme => ({
 	appBar: {
 		zIndex: theme.zIndex.drawer + 1
@@ -17,7 +16,6 @@ const styles = theme => ({
 		}
 	}
 })
-
 const Header = props => {
 	const { classes } = props
 	const handleDrawerToggle = props.handleDrawerToggle
@@ -31,7 +29,6 @@ const Header = props => {
 					onClick={handleDrawerToggle}
 					className={classes.menuButton}
 				/>
-
 				<CodeIcon
 					style={{
 						marginLeft: 16
@@ -50,5 +47,4 @@ const Header = props => {
 		</AppBar>
 	)
 }
-
 export default withStyles(styles)(Header)

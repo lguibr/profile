@@ -1,14 +1,11 @@
 import React from "react"
-
 import AceEditor from "react-ace"
 import "brace/mode/json"
 import "./../../../assets/tomorrow_night_nineties"
-
 import personal from "../../../data/personal"
 import education from "../../../data/education"
 import professional from "../../../data/professional"
 import projects from "../../../data/projects"
-
 const Editor = props => {
 	const { current } = props
 	const onEditorLoad = editorObject => {
@@ -17,7 +14,6 @@ const Editor = props => {
 	const onEditorChange = newValue => {
 		// console.log(newValue)
 	}
-
 	const getFileByCurrent = () => {
 		switch (current) {
 			case "personal":
@@ -32,7 +28,6 @@ const Editor = props => {
 				return "//default"
 		}
 	}
-
 	return (
 		<AceEditor
 			placeholder="//Loading..."
@@ -52,7 +47,8 @@ const Editor = props => {
 			setOptions={{
 				showLineNumbers: true,
 				tabSize: 2,
-				fontFamily: "'Roboto Mono','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+				fontFamily:
+					"'Roboto Mono','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 			}}
 		/>
 	)

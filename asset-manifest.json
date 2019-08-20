@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/lguibr/profile/static/css/main.1f7df258.chunk.css",
-    "main.js": "/lguibr/profile/static/js/main.67d8de78.chunk.js",
-    "main.js.map": "/lguibr/profile/static/js/main.67d8de78.chunk.js.map",
+    "main.js": "/lguibr/profile/static/js/main.5f692a3b.chunk.js",
+    "main.js.map": "/lguibr/profile/static/js/main.5f692a3b.chunk.js.map",
     "runtime~main.js": "/lguibr/profile/static/js/runtime~main.61566ed2.js",
     "runtime~main.js.map": "/lguibr/profile/static/js/runtime~main.61566ed2.js.map",
-    "static/js/2.979431a4.chunk.js": "/lguibr/profile/static/js/2.979431a4.chunk.js",
-    "static/js/2.979431a4.chunk.js.map": "/lguibr/profile/static/js/2.979431a4.chunk.js.map",
+    "static/js/2.a7cb4640.chunk.js": "/lguibr/profile/static/js/2.a7cb4640.chunk.js",
+    "static/js/2.a7cb4640.chunk.js.map": "/lguibr/profile/static/js/2.a7cb4640.chunk.js.map",
     "index.html": "/lguibr/profile/index.html",
-    "precache-manifest.f7e4343b410d45b87441bf39b0a04232.js": "/lguibr/profile/precache-manifest.f7e4343b410d45b87441bf39b0a04232.js",
+    "precache-manifest.e5bc2e98c4d9fb1289cfc6574f36db59.js": "/lguibr/profile/precache-manifest.e5bc2e98c4d9fb1289cfc6574f36db59.js",
     "service-worker.js": "/lguibr/profile/service-worker.js",
     "static/css/main.1f7df258.chunk.css.map": "/lguibr/profile/static/css/main.1f7df258.chunk.css.map"
   }

@@ -1,12 +1,10 @@
 import ace from "./../../node_modules/brace/index"
-
 ace.define(
 	"ace/theme/tomorrow_night_nineties",
 	["require", "exports", "module", "ace/lib/dom"],
 	function(acequire, exports, module) {
 		exports.isDark = true
 		exports.cssClass = "ace-tomorrow-night-nineties"
-
 		exports.cssText =
 			// eslint-disable-next-line
 			".ace-tomorrow-night-nineties .ace_gutter {\
@@ -111,7 +109,6 @@ color: #67c6f0\
 .ace-tomorrow-night-nineties .ace_indent-guide {\
 background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y\
 }"
-
 		var dom = acequire("../lib/dom")
 		dom.importCssString(exports.cssText, exports.cssClass)
 	}

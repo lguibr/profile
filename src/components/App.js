@@ -47,8 +47,10 @@ const App = props => {
 				open={mobileOpen}
 				handleDrawerToggle={handleDrawerToggle}
 				setOpenedFiles={setOpenFile}
+				setCurrent={setCurrent}
 				files={files}
 			/>
+
 			<Footer />
 		</MuiThemeProvider>
 	)

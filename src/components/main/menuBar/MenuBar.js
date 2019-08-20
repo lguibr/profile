@@ -5,12 +5,10 @@ import SchoolRoundedIcon from "@material-ui/icons/SchoolRounded"
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined"
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined"
 import BugReportOutlinedIcon from "@material-ui/icons/BugReportOutlined"
-import FolderOpen from "@material-ui/icons/FolderOpen"
-import FolderIcon from "@material-ui/icons/Folder"
-import { Link, Typography } from "@material-ui/core"
 import { withStyles } from "@material-ui/styles"
 import Drawer from "@material-ui/core/Drawer"
 import Hidden from "@material-ui/core/Hidden"
+import MenuBarContent from "./menuBarContent/MenuBarContent"
 const drawerWidth = 220
 const styles = theme => ({
 	drawer: {
@@ -57,46 +55,12 @@ const MenuBar = props => {
 					</div>
 				</List>
 			</div>
-			{/* daki pra */}
-			<div style={{ width: drawerWidth - 50 }}>
-				<div style={{ minHeight: 36 }} />
-				{files.map((file, fileIndex) => {
-					const fileName = Object.keys(file)[0]
-					const fileValue = Object.values(file)[0]
-					return (
-						<div
-							style={{
-								display: "flex",
-								margin: "0px 10px"
-							}}
-							key={fileIndex}
-						>
-							<Link
-								component="button"
-								variant="caption"
-								onClick={() => setOpenedFiles(fileName)}
-								color="inherit"
-								underline="none"
-								style={{
-									padding: 0
-								}}
-							>
-								<Typography noWrap>
-									{fileValue && " * "}
-									{fileName !== current && (
-										<FolderIcon fontSize={"inherit"} />
-									)}
-									{fileName === current && (
-										<FolderOpen fontSize={"inherit"} />
-									)}
-									{fileName}
-								</Typography>
-							</Link>
-						</div>
-					)
-				})}
-			</div>
-			{/*  */}
+
+			<MenuBarContent
+				files={files}
+				setOpenedFiles={setOpenedFiles}
+				current={current}
+			/>
 		</div>
 	)
 	return (

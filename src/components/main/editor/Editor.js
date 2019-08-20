@@ -6,8 +6,9 @@ import personal from "../../../data/personal"
 import education from "../../../data/education"
 import professional from "../../../data/professional"
 import projects from "../../../data/projects"
+import TabFiles from "./tabFiles/TabFiles"
 const Editor = props => {
-	const { current } = props
+	const { current, files, setCurrent } = props
 	const onEditorLoad = editorObject => {
 		// console.log(editorObject)
 	}
@@ -29,28 +30,39 @@ const Editor = props => {
 		}
 	}
 	return (
-		<AceEditor
-			placeholder="//Loading..."
-			mode="json"
-			theme="tomorrow_night_nineties"
-			onChange={onEditorChange}
-			onLoad={onEditorLoad}
-			name="aceEditor"
-			fontSize={"0.9rem"}
-			showPrintMargin={false}
-			wrapEnabled={true}
-			width="100%"
-			height="100%"
-			value={getFileByCurrent()}
-			highlightActiveLine={false}
-			editorProps={{ $blockScrolling: true }}
-			setOptions={{
-				showLineNumbers: true,
-				tabSize: 2,
-				fontFamily:
-					"'Roboto Mono','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
-			}}
-		/>
+		<>
+			<div style={{ minHeight: 36 }} />
+			<div style={{ minHeight: 36 }}>
+				<div />
+				<TabFiles
+					setCurrent={setCurrent}
+					current={current}
+					files={files}
+				/>
+			</div>
+			<AceEditor
+				placeholder="//Loading..."
+				mode="json"
+				theme="tomorrow_night_nineties"
+				onChange={onEditorChange}
+				onLoad={onEditorLoad}
+				name="aceEditor"
+				fontSize={"0.9rem"}
+				showPrintMargin={false}
+				wrapEnabled={true}
+				width="100%"
+				height="calc(100vh - 92px)"
+				value={getFileByCurrent()}
+				highlightActiveLine={false}
+				editorProps={{ $blockScrolling: true }}
+				setOptions={{
+					showLineNumbers: true,
+					tabSize: 2,
+					fontFamily:
+						"'Roboto Mono','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+				}}
+			/>
+		</>
 	)
 }
 export default Editor

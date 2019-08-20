@@ -1,16 +1,15 @@
 import React from "react"
 import Editor from "./editor/Editor"
 import MenuBar from "./menuBar/MenuBar"
-import { Typography } from "@material-ui/core"
 import { withStyles } from "@material-ui/styles"
 const styles = () => ({
 	main: {
 		display: "flex",
-		height: "calc(100vh-200)",
+		height: "calc(100vh)",
 		width: "100vw"
 	},
 	content: {
-		height: "calc(100vh - 80px)",
+		height: "calc(100vh)",
 		width: "100vw"
 	}
 })
@@ -21,7 +20,8 @@ const Main = props => {
 		open,
 		setOpenedFiles,
 		files,
-		current
+		current,
+		setCurrent
 	} = props
 	return (
 		<div className={classes.main}>
@@ -33,21 +33,12 @@ const Main = props => {
 				files={files}
 			/>
 			<main className={classes.content}>
-				<div style={{ minHeight: 36 }} />
-				<div
-					style={{
-						height: "24px"
-					}}
-				>
-					<Typography variant="subtitle1">
-						{Object.values(files).map((e, i) => {
-							let name = Object.keys(e)[0]
-							let value = Object.values(e)[0]
-							return value ? name : null
-						})}
-					</Typography>
-				</div>
-				<Editor current={current} value={` {"teste" : "teste"} `} />
+				<Editor
+					setCurrent={setCurrent}
+					current={current}
+					files={files}
+					value={` {"teste" : "teste"} `}
+				/>
 			</main>
 		</div>
 	)

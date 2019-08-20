@@ -1,7 +1,8 @@
 import React from "react"
 import AceEditor from "react-ace"
 import "brace/mode/json"
-import "./../../../assets/tomorrow_night_nineties"
+import "brace/theme/tomorrow_night_eighties"
+// import "./../../../assets/tomorrow_night_nineties"
 import personal from "../../../data/personal"
 import education from "../../../data/education"
 import professional from "../../../data/professional"
@@ -43,7 +44,7 @@ const Editor = props => {
 			<AceEditor
 				placeholder="//Loading..."
 				mode="json"
-				theme="tomorrow_night_nineties"
+				theme="tomorrow_night_eighties"
 				onChange={onEditorChange}
 				onLoad={onEditorLoad}
 				name="aceEditor"

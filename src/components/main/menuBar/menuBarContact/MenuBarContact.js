@@ -1,7 +1,17 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
+import { withStyles } from "@material-ui/styles"
 
-export default function MenuBarContact(props) {
+const drawerWidth = 220
+const styles = theme => ({
+	drawer: {
+		[theme.breakpoints.up("sm")]: {
+			width: drawerWidth,
+			flexShrink: 0
+		}
+	}
+})
+const MenuBarContact = props => {
 	const { open, drawerWidth } = props
 	return (
 		<div
@@ -49,11 +59,10 @@ export default function MenuBarContact(props) {
 					<div>
 						<Typography>lgpelin92@gmail.com</Typography>
 					</div>
-					<div>
-						<Typography>lgpelin92@gmail.com</Typography>
-					</div>
 				</div>
 			</div>
 		</div>
 	)
 }
+
+export default withStyles(styles)(MenuBarContact)

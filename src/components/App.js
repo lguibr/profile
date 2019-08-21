@@ -40,14 +40,15 @@ let theme = createMuiTheme({
 })
 
 theme = responsiveFontSizes(theme)
+
 const fileNames = [
 	{ personal: true },
 	{ education: false },
 	{ professional: false },
 	{ projects: false }
 ]
+
 const App = props => {
-	console.log(theme)
 	const [mobileOpen, setMobileOpen] = useState(false)
 	const [files, setFiles] = useState(fileNames)
 	const [current, setCurrent] = useState("personal")

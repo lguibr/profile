@@ -1,10 +1,31 @@
 import React, { useState } from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles"
+import {
+	createMuiTheme,
+	MuiThemeProvider,
+	responsiveFontSizes
+} from "@material-ui/core/styles"
 import Footer from "./footer/Footer"
 import Main from "./main/Main"
 import Header from "./header/Header"
-const theme = createMuiTheme({
+let theme = createMuiTheme({
+	props: {
+		MuiTypography: {
+			variantMapping: {
+				h1: "h2",
+				h2: "h2",
+				h3: "h2",
+				h4: "h2",
+				h5: "h2",
+				h6: "h2",
+				subtitle1: "h2",
+				subtitle2: "h2",
+				body1: "span",
+				body2: "span",
+				strong: "strong"
+			}
+		}
+	},
 	palette: {
 		type: "dark",
 		primary: {
@@ -17,6 +38,8 @@ const theme = createMuiTheme({
 		}
 	}
 })
+
+theme = responsiveFontSizes(theme)
 const fileNames = [
 	{ personal: true },
 	{ education: false },
@@ -24,6 +47,7 @@ const fileNames = [
 	{ projects: false }
 ]
 const App = props => {
+	console.log(theme)
 	const [mobileOpen, setMobileOpen] = useState(false)
 	const [files, setFiles] = useState(fileNames)
 	const [current, setCurrent] = useState("personal")

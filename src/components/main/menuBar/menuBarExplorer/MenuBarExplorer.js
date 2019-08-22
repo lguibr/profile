@@ -16,9 +16,8 @@ const styles = theme => ({
 		padding: "0.25em"
 	},
 	subTitle: {
-		fontWeight: "bolder",
 		backgroundColor: "#393939",
-		minHeight: "1.5em",
+		maxHeight: "1.5em",
 		display: "flex",
 		justifyContent: "center",
 		padding: "0.25em"

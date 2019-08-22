@@ -12,13 +12,12 @@ const TabFiles = props => {
 				}}
 				style={{
 					backgroundColor: name === current ? "#232323" : "#292929",
-					borderRight: "1px solid #0000",
 					borderBottom:
 						name === current ? "1px solid tomato" : "0px",
 					marginRight: "1px",
 					padding: ".6em",
 					height: "100%",
-					cursor: "pointer"
+					cursor: "pointer",
 				}}
 			>
 				<p>{name}</p>

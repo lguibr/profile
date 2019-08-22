@@ -14,6 +14,12 @@ const styles = theme => ({
 		[theme.breakpoints.up("sm")]: {
 			display: "none"
 		}
+	},
+	toolbar: {
+		minHeight: "36px"
+	},
+	titleElement: {
+		marginLeft: 16
 	}
 })
 const Header = props => {
@@ -21,7 +27,10 @@ const Header = props => {
 	const handleDrawerToggle = props.handleDrawerToggle
 	return (
 		<AppBar position="fixed" className={classes.appBar}>
-			<Toolbar style={{ minHeight: "36px" }} variant="dense">
+			<Toolbar
+				className={classes.toolbar}
+				variant="dense"
+			>
 				<MenuRoundedIcon
 					color="inherit"
 					aria-label="open drawer"
@@ -29,15 +38,9 @@ const Header = props => {
 					onClick={handleDrawerToggle}
 					className={classes.menuButton}
 				/>
-				<CodeIcon
-					style={{
-						marginLeft: 16
-					}}
-				/>
+				<CodeIcon className={classes.titleElement} />
 				<Typography
-					style={{
-						marginLeft: 16
-					}}
+					className={classes.titleElement}
 					variant="h6"
 					noWrap
 				>

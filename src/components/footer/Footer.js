@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/styles"
 import DevicesIcon from "@material-ui/icons/Devices"
 import CallSplitIcon from "@material-ui/icons/CallSplit"
 import { Typography } from "@material-ui/core"
-const styles = props => ({
+const styles = theme => ({
 	footerContainer: {
 		width: "100%",
 		position: "fixed",
@@ -12,28 +12,21 @@ const styles = props => ({
 		zIndex: "1400",
 		padding: "0.5em 5em 0.5em 5em",
 		fontSize: 10,
-		height: 20
+		height: 20,
+		display: "flex",
+		justifyContent: "space-between"
 	}
 })
 const Footer = props => {
 	const { classes } = props
 	return (
 		<div className={classes.footerContainer}>
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "space-between"
-				}}
-			>
-				<Typography variant={"inherit"}>
-					<CallSplitIcon fontSize={"inherit"} />
-					master*
-				</Typography>
-				<DevicesIcon fontSize={"inherit"} />
-				<Typography variant={"inherit"}>
-					Tab Size: 2 UTF-8 JSON
-				</Typography>
-			</div>
+			<Typography variant={"inherit"}>
+				<CallSplitIcon fontSize={"inherit"} />
+				master*
+			</Typography>
+			<DevicesIcon fontSize={"inherit"} />
+			<Typography variant={"inherit"}>Tab Size: 2 UTF-8 JSON</Typography>
 		</div>
 	)
 }

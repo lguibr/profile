@@ -34,7 +34,6 @@ background: rgb(102, 82, 0)\
 }\
 .ace-tomorrow-night-nineties .ace_marker-layer .ace_bracket {\
 margin: -1px 0 0 -1px;\
-border: 1.2px solid #6A6A6A\
 }\
 .ace-tomorrow-night-bright .ace_stack {\
 background: rgb(66, 90, 44)\
@@ -46,7 +45,6 @@ background: #393939\
 background-color: #393939\
 }\
 .ace-tomorrow-night-nineties .ace_marker-layer .ace_selected-word {\
-border: 1px solid #515151\
 }\
 .ace-tomorrow-night-nineties .ace_invisible {\
 color: #6A6A6A\
@@ -79,7 +77,7 @@ background-color: #CC99CC\
 }\
 .ace-tomorrow-night-nineties .ace_fold {\
 background-color: #6699CC;\
-border-color: #CCCCCC\
+border-color: #0000\
 }\
 .ace-tomorrow-night-nineties .ace_entity.ace_name.ace_function,\
 .ace-tomorrow-night-nineties .ace_support.ace_function,\

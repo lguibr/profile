@@ -2,7 +2,8 @@ import React from "react"
 import Editor from "./editor/Editor"
 import MenuBar from "./menuBar/MenuBar"
 import { withStyles } from "@material-ui/styles"
-const styles = () => ({
+
+const styles = theme => ({
 	main: {
 		display: "flex",
 		height: "calc(100vh)",
@@ -32,12 +33,13 @@ const Main = props => {
 				setOpenedFiles={setOpenedFiles}
 				files={files}
 			/>
+
 			<main className={classes.content}>
 				<Editor
+					mode={"json"}
 					setCurrent={setCurrent}
 					current={current}
 					files={files}
-					value={` {"teste" : "teste"} `}
 				/>
 			</main>
 		</div>

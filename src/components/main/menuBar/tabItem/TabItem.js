@@ -9,12 +9,16 @@ const styles = theme => ({
 	iconContainer: {
 		display: "flex",
 		justifyContent: "center",
-		marginBottom: "1.2em"
+		marginBottom: "1.2em",
+		color: (props) => (props.tab === props.name ? "#fff" : "#ccc")
 	}
 })
 const TabItem = props => {
+	// eslint-disable-next-line
 	const { name, tab, setTab, classes } = props
-
+	console.log(tab)
+	console.log(name)
+	console.log(name===tab)
 	const getIcon = () => {
 		switch (name) {
 			case "explorer":
@@ -33,15 +37,7 @@ const TabItem = props => {
 	}
 
 	return (
-		<div
-			className={classes.iconContainer}
-			onClick={() => {
-				setTab(name)
-			}}
-			style={{
-				color: tab === name ? "#fff" : "#ccc"
-			}}
-		>
+		<div className={classes.iconContainer} onClick={() => setTab(name)}>
 			{getIcon()}
 		</div>
 	)

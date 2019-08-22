@@ -24,7 +24,8 @@ const styles = theme => ({
 	drawerContainer: {
 		marginTop: props => (props.open ? 0 : 36),
 		display: "flex",
-		overflow: "hidden"
+		overflow: "hidden",
+		width:"100%"
 	},
 	drawerLeftBar: {
 		minHeight: "100vh",
@@ -67,6 +68,7 @@ const MenuBar = props => {
 					files={files}
 					setOpenedFiles={setOpenedFiles}
 					current={current}
+					drawerWidth={drawerWidth}
 				/>
 			)}
 

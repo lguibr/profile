@@ -10,7 +10,7 @@ const styles = theme => ({
 		backgroundColor: "#0289c7",
 		bottom: "0px",
 		zIndex: "1400",
-		padding: "0.5em 5em 0.5em 5em",
+		padding: "0.5em 1em 0.5em 1em",
 		fontSize: 10,
 		height: 20,
 		display: "flex",

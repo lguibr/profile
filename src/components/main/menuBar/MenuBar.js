@@ -6,11 +6,7 @@ import { withStyles } from "@material-ui/styles"
 import Drawer from "@material-ui/core/Drawer"
 import Hidden from "@material-ui/core/Hidden"
 import MenuBarExplorer from "./menuBarExplorer/MenuBarExplorer"
-import MenuBarContact from "./menuBarContact/MenuBarContact"
-import MenuBarRepo from "./menuBarRepo/MenuBarRepo"
-import MenuBarDash from "./menuBarDash/MenuBarDash"
-import MenuBarAbout from "./menuBarAbout/MenuBarAbout"
-import TabItem from "./tabItem/TabItem"
+import TabSelector from "./tabSelector/TabSelector"
 
 const drawerWidth = 220
 
@@ -25,7 +21,7 @@ const styles = theme => ({
 		marginTop: props => (props.open ? 0 : 36),
 		display: "flex",
 		overflow: "hidden",
-		width:"100%"
+		width: "100%"
 	},
 	drawerLeftBar: {
 		minHeight: "100vh",
@@ -52,7 +48,7 @@ const MenuBar = props => {
 				<List>
 					{["explorer", "contact", "repo", "about", "dash"].map(
 						name => (
-							<TabItem
+							<TabSelector
 								open={open}
 								key={name}
 								setTab={setTab}
@@ -70,19 +66,6 @@ const MenuBar = props => {
 					current={current}
 					drawerWidth={drawerWidth}
 				/>
-			)}
-
-			{tab === "contact" && (
-				<MenuBarContact drawerWidth={drawerWidth} open={open} />
-			)}
-			{tab === "repo" && (
-				<MenuBarRepo drawerWidth={drawerWidth} open={open} />
-			)}
-			{tab === "about" && (
-				<MenuBarAbout drawerWidth={drawerWidth} open={open} />
-			)}
-			{tab === "dash" && (
-				<MenuBarDash drawerWidth={drawerWidth} open={open} />
 			)}
 		</div>
 	)

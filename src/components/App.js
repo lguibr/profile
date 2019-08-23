@@ -42,7 +42,7 @@ let theme = createMuiTheme({
 theme = responsiveFontSizes(theme)
 
 const fileNames = [
-	{ personal: true },
+	{ personal: false },
 	{ education: false },
 	{ professional: false },
 	{ projects: false }
@@ -51,7 +51,7 @@ const fileNames = [
 const App = props => {
 	const [mobileOpen, setMobileOpen] = useState(false)
 	const [files, setFiles] = useState(fileNames)
-	const [current, setCurrent] = useState("personal")
+	const [current, setCurrent] = useState("")
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen)
 	}

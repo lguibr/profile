@@ -1,6 +1,9 @@
 import React from "react"
+import File from "./../../../file/File"
+
 const TabFiles = props => {
 	const { files, current, setCurrent } = props
+	//teate
 	const tabs = files.map((e, i) => {
 		let name = Object.keys(e)[0]
 		let value = Object.values(e)[0]
@@ -12,15 +15,20 @@ const TabFiles = props => {
 				}}
 				style={{
 					backgroundColor: name === current ? "#232323" : "#292929",
-					borderBottom:
-						name === current ? "1px solid tomato" : "0px",
+					borderBottom: name === current ? "1px solid tomato" : "0px",
 					marginRight: "1px",
-					padding: ".6em",
+					padding: " .3rem 2rem .3rem .3rem",
 					height: "100%",
-					cursor: "pointer",
+					cursor: "pointer"
 				}}
 			>
-				<p>{name}</p>
+				<File
+					defaultBackground={"#0000"}
+					selectedBackground={"#0000"}
+					fileName={name}
+					key={name}
+					isCurrent={name === current}
+				/>
 			</div>
 		) : (
 			""

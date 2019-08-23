@@ -27,7 +27,7 @@ const Editor = props => {
 			case "projects":
 				return JSON.stringify(projects, null, "\t")
 			default:
-				return false
+				return "error"
 		}
 	}
 	return (

@@ -1,6 +1,6 @@
 import React from "react"
-import FolderOpen from "@material-ui/icons/FolderOpen"
-import FolderIcon from "@material-ui/icons/Folder"
+
+import File from "../../../file/File"
 import { Typography } from "@material-ui/core"
 import { withStyles } from "@material-ui/styles"
 
@@ -21,18 +21,6 @@ const styles = theme => ({
 		display: "flex",
 		justifyContent: "center",
 		padding: "0.25em"
-	},
-	elementContainer: {
-		display: "flex",
-		padding: "0px 10px",
-		backgroundColor: (current, fileName) =>
-			fileName === current ? "#34353a" : "#0000",
-		width: "100%",
-		cursor: "pointer"
-	},
-	icon: {
-		marginRight: ".5em",
-		fontSize: "inherit"
 	}
 })
 
@@ -45,31 +33,27 @@ const MenuBarExplorer = props => {
 				<Typography variant="caption">{title}</Typography>
 			</div>
 			<div>
-				<div className={classes.subTitle}>
-					<Typography variant="caption">OPEN EDITORS</Typography>
-				</div>
-				{files.map((file, fileIndex) => {
-					const fileName = Object.keys(file)[0]
-					const fileValue = Object.values(file)[0]
-					return (
-						fileValue && (
-							<div
-								className={classes.elementContainer}
-								key={fileIndex}
-							>
-								<Typography noWrap>
-									{fileName !== current && (
-										<FolderIcon className={classes.icon} />
-									)}
-									{fileName === current && (
-										<FolderOpen className={classes.icon} />
-									)}
-									{fileName}
-								</Typography>
-							</div>
+				<div>
+					<div className={classes.subTitle}>
+						<Typography variant="caption">OPEN EDITORS</Typography>
+					</div>
+					{files.map((file, fileIndex) => {
+						const fileName = Object.keys(file)[0]
+						const fileValue = Object.values(file)[0]
+						return (
+							fileValue && (
+								<File
+									defaultBackground={"#0000"}
+									selectedBackground={"#34353a"}
+									setOpenedFiles={setOpenedFiles}
+									fileName={fileName}
+									key={fileIndex}
+									isCurrent={fileName === current}
+								/>
+							)
 						)
-					)
-				})}
+					})}
+				</div>
 			</div>
 			<div>
 				<div className={classes.subTitle}>
@@ -78,21 +62,14 @@ const MenuBarExplorer = props => {
 				{files.map((file, fileIndex) => {
 					const fileName = Object.keys(file)[0]
 					return (
-						<div
-							onClick={() => setOpenedFiles(fileName)}
-							className={classes.elementContainer}
+						<File
+							defaultBackground={"#0000"}
+							selectedBackground={"#34353a"}
+							setOpenedFiles={setOpenedFiles}
 							key={fileIndex}
-						>
-							<Typography noWrap>
-								{fileName !== current && (
-									<FolderIcon className={classes.icon} />
-								)}
-								{fileName === current && (
-									<FolderOpen className={classes.icon} />
-								)}
-								{fileName}
-							</Typography>
-						</div>
+							fileName={fileName}
+							isCurrent={fileName === current}
+						/>
 					)
 				})}
 			</div>

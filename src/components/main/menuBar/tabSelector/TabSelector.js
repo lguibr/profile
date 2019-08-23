@@ -4,27 +4,25 @@ import CallSplitRoundedIcon from "@material-ui/icons/CallSplitRounded"
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined"
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined"
 import BugReportOutlinedIcon from "@material-ui/icons/BugReportOutlined"
-import PermPhoneMsgIcon from "@material-ui/icons/PermPhoneMsg"
+import EmailRoundedIcon from "@material-ui/icons/EmailRounded"
+
 const styles = theme => ({
 	iconContainer: {
 		display: "flex",
 		justifyContent: "center",
 		marginBottom: "1.2em",
-		color: (props) => (props.tab === props.name ? "#fff" : "#ccc")
+		color: props => (props.tab === props.name ? "#fff" : "#ccc")
 	}
 })
-const TabItem = props => {
+const TabSelector = props => {
 	// eslint-disable-next-line
 	const { name, tab, setTab, classes } = props
-	console.log(tab)
-	console.log(name)
-	console.log(name===tab)
 	const getIcon = () => {
 		switch (name) {
 			case "explorer":
 				return <FileCopyOutlinedIcon />
 			case "contact":
-				return <PermPhoneMsgIcon />
+				return <EmailRoundedIcon />
 			case "repo":
 				return <CallSplitRoundedIcon />
 			case "about":
@@ -43,4 +41,4 @@ const TabItem = props => {
 	)
 }
 
-export default withStyles(styles)(TabItem)
+export default withStyles(styles)(TabSelector)

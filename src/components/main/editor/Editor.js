@@ -39,7 +39,7 @@ const Editor = props => {
 						style={{
 							overflowX: "auto",
 							whiteSpace: "nowrap",
-							width: "100vw"
+							width: "100%"
 						}}
 					>
 						<TabFiles

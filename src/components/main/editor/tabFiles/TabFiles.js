@@ -3,7 +3,6 @@ import File from "./../../../file/File"
 
 const TabFiles = props => {
 	const { files, current, setCurrent } = props
-	//teate
 	const tabs = files.map((e, i) => {
 		let name = Object.keys(e)[0]
 		let value = Object.values(e)[0]
@@ -19,7 +18,8 @@ const TabFiles = props => {
 					marginRight: "1px",
 					padding: " .3rem 2rem .3rem .3rem",
 					height: "100%",
-					cursor: "pointer"
+					cursor: "pointer",
+					display: "block-inline"
 				}}
 			>
 				<File

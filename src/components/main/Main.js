@@ -7,7 +7,8 @@ const styles = theme => ({
 	main: {
 		display: "flex",
 		height: "calc(100vh)",
-		width: "100vw"
+		width: "100vw",
+		maxWidth: "100vw"
 	},
 	content: {
 		height: "calc(100vh)",

@@ -35,12 +35,19 @@ const Editor = props => {
 			<>
 				<div style={{ minHeight: 36 }} />
 				<div style={{ minHeight: 36 }}>
-					<div />
-					<TabFiles
-						setCurrent={setCurrent}
-						current={current}
-						files={files}
-					/>
+					<div
+						style={{
+							overflowX: "auto",
+							whiteSpace: "nowrap",
+							width: "100vw"
+						}}
+					>
+						<TabFiles
+							setCurrent={setCurrent}
+							current={current}
+							files={files}
+						/>
+					</div>
 				</div>
 				<AceEditor
 					placeholder="//Loading..."

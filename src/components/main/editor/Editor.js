@@ -32,14 +32,19 @@ const Editor = props => {
 	}
 	return (
 		current && (
-			<>
+			<div
+				style={{
+					maxWidth: "100%"
+				}}
+			>
 				<div style={{ minHeight: 36 }} />
 				<div style={{ minHeight: 36 }}>
 					<div
 						style={{
 							overflowX: "auto",
 							whiteSpace: "nowrap",
-							width: "100%"
+							width: "100%",
+							maxWidth: "100%"
 						}}
 					>
 						<TabFiles
@@ -71,7 +76,7 @@ const Editor = props => {
 							"'Roboto Mono','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 					}}
 				/>
-			</>
+			</div>
 		)
 	)
 }

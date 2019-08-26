@@ -56,7 +56,7 @@ const Header = props => {
 					variant="h6"
 					noWrap
 				>
-					Developer Profile
+					Visual Developer Profile
 				</Typography>
 			</Toolbar>
 		</AppBar>

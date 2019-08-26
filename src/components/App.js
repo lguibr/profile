@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import {
 	createMuiTheme,
@@ -34,7 +34,7 @@ let theme = createMuiTheme({
 			dark: "#181818"
 		},
 		secondary: {
-			main: "#000000"
+			main: "#181818"
 		}
 	}
 })
@@ -42,7 +42,7 @@ let theme = createMuiTheme({
 theme = responsiveFontSizes(theme)
 
 const fileNames = [
-	{ personal: false },
+	{ personal: true },
 	{ education: false },
 	{ professional: false },
 	{ projects: false }
@@ -51,7 +51,7 @@ const fileNames = [
 const App = props => {
 	const [mobileOpen, setMobileOpen] = useState(false)
 	const [files, setFiles] = useState(fileNames)
-	const [current, setCurrent] = useState("")
+	const [current, setCurrent] = useState("personal")
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen)
 	}
@@ -63,6 +63,30 @@ const App = props => {
 		setFiles(newFiles)
 		setCurrent(file)
 	}
+
+	const [ghRepos, setGHRepos] = useState([])
+
+	useEffect(() => {
+		const fetchGitHubData = async () => {
+			const response = await fetch(
+				"https://api.github.com/users/lguibr/repos"
+			)
+			const data = await response.json()
+			const parsedData = data.map(rawRepo => {
+				console.log(rawRepo)
+				const { id, name, description, homepage } = rawRepo
+				const repo = { id, name, description, homepage }
+				if (repo.description) {
+					return repo
+				} else {
+					return false
+				}
+			})
+			setGHRepos(parsedData)
+		}
+		fetchGitHubData()
+	}, [])
+
 	return (
 		<MuiThemeProvider theme={theme}>
 			<CssBaseline />
@@ -74,6 +98,7 @@ const App = props => {
 				setOpenedFiles={setOpenFile}
 				setCurrent={setCurrent}
 				files={files}
+				ghRepos={ghRepos}
 			/>
 
 			<Footer />

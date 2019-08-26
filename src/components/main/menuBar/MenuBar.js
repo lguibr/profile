@@ -2,13 +2,15 @@ import React, { useState } from "react"
 import List from "@material-ui/core/List"
 
 import { withStyles } from "@material-ui/styles"
-
 import Drawer from "@material-ui/core/Drawer"
 import Hidden from "@material-ui/core/Hidden"
+
 import MenuBarExplorer from "./menuBarExplorer/MenuBarExplorer"
 import TabSelector from "./tabSelector/TabSelector"
+import ContentBox from "./contentBox/ContentBox"
+import contacts from "./../../../data/contacts"
 
-const drawerWidth = 220
+const drawerWidth = 250
 
 const styles = theme => ({
 	drawer: {
@@ -21,7 +23,8 @@ const styles = theme => ({
 		marginTop: props => (props.open ? 0 : 36),
 		display: "flex",
 		overflow: "hidden",
-		width: "100%"
+		width: "100%",
+		backgroundColor: "#28282a"
 	},
 	drawerLeftBar: {
 		minHeight: "100vh",
@@ -37,7 +40,8 @@ const MenuBar = props => {
 		setOpenedFiles,
 		files,
 		current,
-		handleDrawerToggle
+		handleDrawerToggle,
+		ghRepos
 	} = props
 	const [tab, setTab] = useState("explorer")
 
@@ -46,17 +50,15 @@ const MenuBar = props => {
 			{/* opa */}
 			<div className={classes.drawerLeftBar}>
 				<List>
-					{["explorer", "contact", "repo", "about", "dash"].map(
-						name => (
-							<TabSelector
-								open={open}
-								key={name}
-								setTab={setTab}
-								tab={tab}
-								name={name}
-							/>
-						)
-					)}
+					{["explorer", "contact", "repo"].map(name => (
+						<TabSelector
+							open={open}
+							key={name}
+							setTab={setTab}
+							tab={tab}
+							name={name}
+						/>
+					))}
 				</List>
 			</div>
 			{tab === "explorer" && (
@@ -67,6 +69,33 @@ const MenuBar = props => {
 					drawerWidth={drawerWidth}
 				/>
 			)}
+			<div
+				style={{
+					display: "flex",
+					maxWidth: 200,
+					flexDirection: "column",
+					overflow: "auto",
+					marginBottom: "1rem"
+				}}
+			>
+				{tab === "contact" && (
+					<div>
+						<p>teste</p>
+						{contacts.map((contact, i) => {
+							return <ContentBox key={i} content={contact} />
+						})}
+					</div>
+				)}
+
+				{tab === "repo" && (
+					<div>
+						<p>teste</p>
+						{ghRepos.map((repo, i) => {
+							return <ContentBox key={i} content={repo} />
+						})}
+					</div>
+				)}
+			</div>
 		</div>
 	)
 

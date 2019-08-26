@@ -5,14 +5,18 @@ import { withStyles } from "@material-ui/styles"
 
 const styles = theme => ({
 	main: {
-		display: "flex",
+		display: "grid",
+		gridTemplateColumns: "auto 100%",
 		height: "calc(100vh)",
-		width: "100vw",
-		maxWidth: "100vw"
+		width: "100%",
+		maxWidth: "100%"
 	},
 	content: {
 		height: "calc(100vh)",
-		width: "100vw"
+		maxWidth: "100%",
+		[theme.breakpoints.up("sm")]: {
+			maxWidth: "calc(100% -  250px)"
+		}
 	}
 })
 const Main = props => {
@@ -23,8 +27,10 @@ const Main = props => {
 		setOpenedFiles,
 		files,
 		current,
-		setCurrent
+		setCurrent,
+		ghRepos
 	} = props
+
 	return (
 		<div className={classes.main}>
 			<MenuBar
@@ -33,6 +39,7 @@ const Main = props => {
 				handleDrawerToggle={handleDrawerToggle}
 				setOpenedFiles={setOpenedFiles}
 				files={files}
+				ghRepos={ghRepos}
 			/>
 
 			<main className={classes.content}>

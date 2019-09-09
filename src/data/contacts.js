@@ -14,9 +14,7 @@ export default [
 		action: () => {
 			var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 			if (isMobile) {
-				window.open("tel:+55-37991640818")
-			} else {
-				// copyToClipboard("+55 37 99164-0818")
+				return window.open("tel:+55-37991640818")
 			}
 		}
 	},
@@ -47,9 +45,3 @@ export default [
 		}
 	}
 ]
-
-function copyToClipboard(string) {
-	navigator.clipboard.writeText(string).then(function() {
-		alert("Telefone copiado para a area de transferencia")
-	})
-}

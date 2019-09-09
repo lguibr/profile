@@ -80,7 +80,17 @@ const MenuBar = props => {
 			>
 				{tab === "contact" && (
 					<div>
-						<p>teste</p>
+						<div
+							style={{
+								display: "flex",
+								padding: ".25em",
+								minHeight: "2em",
+								justifyContent: "center",
+								backgroundColor: "#424242"
+							}}
+						>
+							<p>Contatos</p>
+						</div>
 						{contacts.map((contact, i) => {
 							return <ContentBox key={i} content={contact} />
 						})}
@@ -89,7 +99,18 @@ const MenuBar = props => {
 
 				{tab === "repo" && (
 					<div>
-						<p>teste</p>
+						<div
+							style={{
+								display: "flex",
+								padding: ".25em",
+								minHeight: "2em",
+								justifyContent: "center",
+								backgroundColor: "#424242"
+							}}
+						>
+							<p>Projetos</p>
+						</div>
+
 						{ghRepos.map((repo, i) => {
 							return <ContentBox key={i} content={repo} />
 						})}

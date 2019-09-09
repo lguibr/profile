@@ -26,7 +26,7 @@ const styles = theme => ({
 
 const MenuBarExplorer = props => {
 	const { setOpenedFiles, files, current, classes } = props
-	const title = "EXPLORER"
+	const title = "EXPLORADOR"
 	return (
 		<div className={classes.container}>
 			<div className={classes.title}>
@@ -35,7 +35,9 @@ const MenuBarExplorer = props => {
 			<div>
 				<div>
 					<div className={classes.subTitle}>
-						<Typography variant="caption">OPEN EDITORS</Typography>
+						<Typography variant="caption">
+							ARQUIVOS ABERTOS
+						</Typography>
 					</div>
 					{files.map((file, fileIndex) => {
 						const fileName = Object.keys(file)[0]
@@ -57,7 +59,7 @@ const MenuBarExplorer = props => {
 			</div>
 			<div>
 				<div className={classes.subTitle}>
-					<Typography variant="caption">PROFILE</Typography>
+					<Typography variant="caption">ARQUIVOS</Typography>
 				</div>
 				{files.map((file, fileIndex) => {
 					const fileName = Object.keys(file)[0]

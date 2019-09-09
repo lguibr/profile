@@ -74,8 +74,8 @@ const App = props => {
 			const data = await response.json()
 			const parsedData = data.map(rawRepo => {
 				console.log(rawRepo)
-				const { id, name, description, homepage } = rawRepo
-				const repo = { id, name, description, homepage }
+				const { id, name, description, homepage, html_url } = rawRepo
+				const repo = { id, name, description, homepage, html_url }
 				if (repo.description) {
 					return repo
 				} else {
@@ -102,6 +102,7 @@ const App = props => {
 			/>
 
 			<Footer />
+			
 		</MuiThemeProvider>
 	)
 }

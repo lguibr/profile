@@ -12,7 +12,7 @@ const AppRouter = () => {
   }
   return (
     <Router>
-      <Home handleEditorValue={handleEditorValue} value={value} path="/" />
+      <Home handleEditorValue={handleEditorValue} value={value} path='/' />
     </Router>
   )
 }

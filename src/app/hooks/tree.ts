@@ -1,35 +1,23 @@
 import { useState, useEffect } from 'react'
 
-type TreeRawData = { path: string }
-type Tree =
-  | [
-      {
-        path: string
-        children: Tree
-      },
-    ]
-  | []
+type Path = string
+type File = {
+  path: string
+  [name: string]: string | File
+}
 
 export const useTree = () => {
-  const shaMaster = '53335d6a1f14ac92964df8359316d8ca265cba1c'
+  const shaMaster = 'eb0980092b445a4b9da9d843ada8d61cd0644dc8'
   const threePath = `https://api.github.com/repos/lguibr/profile/git/trees/${shaMaster}?recursive=1`
   const [tree, setTree] = useState([])
 
-  let paths = [
-    'About.vue',
-    'Categories/Index.vue',
-    'Categories/Demo.vue',
-    'Categories/Flavors.vue',
-    'Categories/teste/Types/Index.vue',
-    'Categories/Types/poi/Other.vue',
-  ]
-
   const buildTree = (rawTree: []) => {
-    const tree: Tree = []
-    let level = { tree }
-    rawTree.forEach((item: TreeRawData) => {
-      const path: string = item.path
-      path.split('/').reduce((predecessor, name: string) => {
+    const initialTree = []
+    let level = { tree: initialTree }
+    rawTree.forEach((file: File) => {
+      const path: string = file.path
+
+      path.split('/').reduce((predecessor, name) => {
         if (!predecessor[name]) {
           predecessor[name] = { tree: [] }
           predecessor.tree.push({
@@ -43,7 +31,7 @@ export const useTree = () => {
       }, level)
     })
 
-    return tree
+    return initialTree
   }
 
   const fetchTree = async () => {

@@ -19,7 +19,7 @@ const Resizable: React.FC<ResizableProps> = ({
   children,
   min,
   max,
-  initial
+  initial,
   direction = 'horizontal',
 }) => {
   const separatorRef: React.RefObject<HTMLDivElement> = useRef(null)

@@ -12,21 +12,37 @@ export const Container = styled.div`
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    border: 5px dotted green;
 
     .ace_gutter-active-line {
-      background-color: ${(props: ThemeInterface) => props.theme.colors.stroke};
+      background-color: ${(props: ThemeInterface) =>
+        props.theme.colors.editorBackgroundFocus};
     }
     .ace_gutter-layer {
       background-color: ${(props: ThemeInterface) =>
-        props.theme.colors.success};
+        props.theme.colors.editorBackground};
     }
     .ace_active-line {
-      background-color: ${(props: ThemeInterface) => props.theme.colors.stroke};
+      background-color: ${(props: ThemeInterface) =>
+        props.theme.colors.editorBackgroundFocus};
     }
+
     * {
       font-family: 'Roboto Mono';
       font-size: 1em;
+    }
+
+    .ace_content {
+      background-color: ${(props: ThemeInterface) =>
+        props.theme.colors.editorBackground};
+    }
+    .ace_scrollbar {
+      ::-webkit-scrollbar {
+        background: ${(props: ThemeInterface) =>
+          props.theme.colors.editorBackground};
+      }
+      ::-webkit-scrollbar-thumb {
+        background: ${(props: ThemeInterface) => props.theme.colors.scroll};
+      }
     }
   }
 `

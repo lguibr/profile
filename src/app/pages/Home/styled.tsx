@@ -24,7 +24,6 @@ export const FileContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  border: 5px dotted gold;
 `
 
 export const Main = styled.div`
@@ -32,7 +31,7 @@ export const Main = styled.div`
   flex-grow: 1;
   height: calc(100% - 40px);
 
-  width: 99vw;
+  width: 100vw;
   max-width: 100%;
   box-sizing: border-box;
 `

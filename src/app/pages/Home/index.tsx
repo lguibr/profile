@@ -15,14 +15,14 @@ const Home = props => {
     <Container>
       <NavBar>
         <Logo height={30} />
-        <Text>Profile 3.0</Text>
+        <Text>Visual Developer Profile</Text>
       </NavBar>
       <Main>
         <SideBar handleEditorValue={handleEditorValue} />
         <Content>
           <BreadCrumb>BreadCrumb</BreadCrumb>
           <FileContainer>
-            <Editor value={value} />
+            <Editor path={value} />
           </FileContainer>
           <Terminal />
         </Content>

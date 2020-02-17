@@ -25,8 +25,12 @@ const colors: Colors = {
 
   white: 'red',
   black: '#262E4D',
+  scroll: '#1f222c',
+  stroke: 'black',
   background: '#090b0f',
-  stroke: '#0a0c12',
+  fileThumbFocus: '#07090d',
+  editorBackground: '#0f1019',
+  editorBackgroundFocus: '#0a0c11',
 }
 
 export const fonts: FontStyles = {

@@ -1,0 +1,49 @@
+stages:
+  - quality_gate
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+    - dist/
+
+lint:
+  stage: quality_gate
+  image: node:12-alpine
+  script: |
+    yarn
+    yarn lint
+  only:
+    - merge_requests
+  tags:
+    - quality
+
+yarn_tests:
+  stage: quality_gate
+  image: node:12-alpine
+  script: |
+    yarn
+    yarn test
+  only:
+    - merge_requests
+  tags:
+    - quality
+
+pages:
+  stage: deploy
+  image: masouzajr/react-snap
+  script: |
+    yarn
+    export BUILD_NAME=${CI_COMMIT_TAG:-$CI_COMMIT_NAME}
+    yarn build
+  artifacts:
+    paths:
+      - public
+  environment:
+    name: prod_gitlab_pages
+    url: https://tremtec.gitlab.io/
+  only:
+    - master
+  tags:
+    - build
